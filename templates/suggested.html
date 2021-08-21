@@ -1,0 +1,37 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+<h1>Marks Details</h1>
+<div class="table-responsive mt-1">
+<br>
+<table id="example" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Questions</th>
+                <th>Marks</th>
+                <th>Course Outcomes</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for question,marks,co in data %}
+            <tr>
+                <td>{{question}}</td>
+                <td>{{marks}}</td>
+                <td>{{co}}</td>
+                
+
+                
+                
+                
+                
+            </tr>
+      
+              {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+{% endblock content %}
