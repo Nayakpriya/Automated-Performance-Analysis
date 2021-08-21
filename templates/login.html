@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://performance-analyst.bss.design/login-s.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+          {% include 'messages.html' %}
+        </div>
+      </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>dlt2</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap2.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/css2.css'%}">
+    <link rel="stylesheet" href="{% static 'css/css(1)2.css'%}">
+    <link rel="stylesheet" href="{% static 'css/font2-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/styles2.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/animate2.min.css'%}">
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.991.0" data-gr-ext-installed="">
+    <section class="login-clean">
+        <form method="POST" action="{% url 'login' %}" style="width: 400px;padding: 50px;">
+            {% csrf_token %}
+            <h2 class="visually-hidden">Login Form</h2>
+            <div class="illustration"><i class="icon ion-ios-navigate" style="border-color: #60cede;color: #60cede;"></i></div>
+            <div class="mb-3"><input class="form-control"  name="name" placeholder="Name" style="font-family: Bitter, serif;font-size: 20px;"></div>
+            <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password" style="font-family: Bitter, serif;text-align: left;font-size: 20px;"></div>
+            <div class="mb-3"><button class="btn btn-primary text-capitalize d-block w-100" data-bss-hover-animate="flash" type="submit" style="color: var(--bs-indigo);background: #60cede;font-size: 20px;">Login</button></div><a data-bss-hover-animate="flash" class="forgot" style="font-size: 15px;color: var(--bs-purple);">Forgot your email or password?</a>
+        </form>
+    </section>
+    <script src="{% static 'js/bootstrap.bundle.min.js.download'}"></script>
+    <script src="{% static 'js/Chart.bundle.min.js.download'}"></script>
+    <script src="{% static 'js/script.min.js.download'}"></script>
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

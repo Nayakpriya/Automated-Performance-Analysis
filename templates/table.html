@@ -1,0 +1,43 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+<h1>Marks Details</h1>
+<div class="table-responsive mt-1">
+<br>
+<table id="example" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>USN</th>
+                <th>Question 1</th>
+                <th>Question 2</th>
+                <th>Question 3</th>
+                <th>Question 4</th>
+                <th>Question 5</th>
+                <th>Test Marks</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in data %}
+            <tr>
+                <td>{{entry.student_name}}</td>
+                <td>{{entry.usn}}</td>
+                <td>{{entry.q1}}</td>
+                <td>{{entry.q2}}</td>
+                <td>{{entry.q3}}</td>
+                
+                <td>{{entry.q4}}</td>
+                <td>{{entry.q5}}</td>
+                <td>{{entry.total}}</td>
+                
+            </tr>
+      
+              {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+{% endblock content %}
