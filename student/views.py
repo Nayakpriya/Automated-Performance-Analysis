@@ -8,7 +8,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import Questionform
 from .forms import Marksform
-
+from .utils import suggested_questions
+import json
 def home(request):
     return render(request,'home.html')
 
@@ -77,3 +78,21 @@ def marks_charts(request):
             'data':data
         }
         return render(request,'index.html',context=context)
+
+def suggested_list(request):
+    marks=[]
+    co=[]
+    question=[]
+    for element in suggested_questions:
+        print(type(element))
+        print(element)
+        marks.append(element.get("Marks"))
+        question.append(element.get("Question"))
+        co.append(element.get("COs"))
+    print(marks,question,co)
+    data=zip(question,marks,co)
+    context={
+      "data":data
+    }
+    
+    return render(request,'suggested.html',context=context)
