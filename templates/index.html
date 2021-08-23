@@ -7,12 +7,12 @@
 <script>
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'pie',
+    type: 'bar',
     data: {
         labels: ['10', '20', '30', '40', '50'],
         datasets: [{
             label: 'Marks Analysis',
-            data: [{% for d in data %}{{ d.q1 }}, {% endfor %}],
+            data: [{% for d in data %}{{ d.total }}, {% endfor %}],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
