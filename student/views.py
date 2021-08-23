@@ -34,9 +34,13 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            messages.success(request, 'Logged in as a student')
+            if request.user.is_superuser:
+                messages.success(request,'Logged in as teacher')
+                return redirect('admin/')
+            else:
+                messages.success(request, 'Logged in as a student')
             
-            return redirect('question-add')
+                return redirect('question-add')
         else:
             messages.warning(request, 'invalid credentials')
             return redirect('login')
@@ -66,18 +70,14 @@ def marks_details(request):
 
 
 def marks_charts(request):
-    labels=[]
-    data=[]
-
-    queryset=Marks.objects.order_by('total')
-    for mark in queryset:
-        labels.append(mark.student_name)
-        data.append(mark.total)
-        context={
-            'labels':labels,
-            'data':data
+    
+    data=Marks.objects.all()
+    
+    context={
+           
+            "data":data
         }
-        return render(request,'index.html',context=context)
+    return render(request,'index.html',context=context)
 
 def suggested_list(request):
     marks=[]
