@@ -39,8 +39,7 @@ def login(request):
                 return redirect('admin/')
             else:
                 messages.success(request, 'Logged in as a student')
-            
-                return redirect('question-add')
+                return redirect('suggested-list')
         else:
             messages.warning(request, 'invalid credentials')
             return redirect('login')
@@ -71,8 +70,9 @@ def marks_details(request):
 
 def marks_charts(request):
     
-    data=Marks.objects.all()
-    
+    data=Marks.objects.filter(test='1')
+    #data1=Marks.objects.filter(10<total<20).filter(i_begin_int__lte=10, i_end_int__gte=20).count
+    # print(data1)
     context={
            
             "data":data
