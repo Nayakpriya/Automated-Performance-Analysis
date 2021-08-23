@@ -22,8 +22,8 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path('admin/',admin.site.urls),
-    path('student/',include('student.urls')),
+    path('login/admin/',admin.site.urls),
+    path('',include('student.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,

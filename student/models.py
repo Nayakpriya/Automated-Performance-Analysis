@@ -31,4 +31,4 @@ class Marks(models.Model):
     
 
     def __str__(self):
-        return self.question
+        return self.student_name

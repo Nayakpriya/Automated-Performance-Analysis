@@ -1,7 +1,9 @@
 from django.contrib import admin
 from student.models import Question,Marks
+from  django.contrib.auth.models  import  Group  
 # Register your models here.
 
+admin.site.unregister(Group) 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
     list_display = ("topic", "question", "course_outcomes","test")
