@@ -2,14 +2,15 @@ import pandas as pd
 import networkx as nx 
 from networkx_query import search_nodes
 import json
+from user.settings import BASE_DIR
 
 student_id = 2  #Login
 whichTest = 1   #Student Selection
 
 suggested_questions = pd.DataFrame()
 
-test = pd.read_excel(r"C:\Users\PRIYA\Desktop\DTL\student\DTL_Sample_Tests.xlsx", sheet_name ="Test"+str(whichTest))
-marks = pd.read_excel(r"C:\Users\PRIYA\Desktop\DTL\student\DTL_Sample_Marks.xlsx", sheet_name ="Test"+str(whichTest), index_col = "Student_ID")
+test = pd.read_excel(f"{BASE_DIR}\student\DTL_Sample_Tests.xlsx", sheet_name ="Test"+str(whichTest))
+marks = pd.read_excel(f"{BASE_DIR}\student\DTL_Sample_Marks.xlsx", sheet_name ="Test"+str(whichTest), index_col = "Student_ID")
 
 
 means = marks.mean(axis = 0)#Means of each question
