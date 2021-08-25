@@ -12,7 +12,7 @@ var myChart = new Chart(ctx, {
         labels: ['10', '20', '30', '40', '50'],
         datasets: [{
             label: 'Marks Analysis',
-            data: [{% for d in data %}{{ d.total }}, {% endfor %}],
+            data: [{% for d in labels %}{{ d }}, {% endfor %}],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

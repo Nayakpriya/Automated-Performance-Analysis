@@ -68,14 +68,87 @@ def marks_details(request):
     return render(request,'table.html',context=context)
 
 
-def marks_charts(request):
-    
+def marks_charts_1(request):
+    d1=0
+    d5=0
+    d2=0
+    d3=0
+    d4=0
     data=Marks.objects.filter(test='1')
-    #data1=Marks.objects.filter(10<total<20).filter(i_begin_int__lte=10, i_end_int__gte=20).count
-    # print(data1)
+    for d in data:
+        if 10>=d.total:
+            d1+=1
+        if 10<d.total<=20:
+            d2+=1
+        if 20<d.total<=30:
+            d3+=1
+        if 30<d.total<=40:
+            d4+=1
+        if 40<d.total<=50:
+            d5+=1
+    
+    labels=[d1,d2,d3,d4,d5]
+    print(labels)
     context={
            
-            "data":data
+            "data":data,
+            "labels":labels,
+        }
+    return render(request,'index.html',context=context)
+
+def marks_charts_2(request):
+    d1=0
+    d5=0
+    d2=0
+    d3=0
+    d4=0
+    data=Marks.objects.filter(test='2')
+    for d in data:
+        if 10>=d.total:
+            d1+=1
+        if 10<d.total<=20:
+            d2+=1
+        if 20<d.total<=30:
+            d3+=1
+        if 30<d.total<=40:
+            d4+=1
+        if 40<d.total<=50:
+            d5+=1
+    
+    labels=[d1,d2,d3,d4,d5]
+    print(labels)
+    context={
+           
+            "data":data,
+            "labels":labels,
+        }
+    return render(request,'index.html',context=context)
+
+def marks_charts_3(request):
+    d1=0
+    d5=0
+    d2=0
+    d3=0
+    d4=0
+    data=Marks.objects.filter(test='3')
+    for d in data:
+        if 10>=d.total:
+            d1+=1
+        if 10<d.total<=20:
+            d2+=1
+        if 20<d.total<=30:
+            d3+=1
+        if 30<d.total<=40:
+            d4+=1
+        if 40<d.total<=50:
+            d5+=1
+    
+    labels=[d1,d2,d3,d4,d5]
+    print(labels)
+    context={
+           
+            "data":data,
+            "labels":labels,
         }
     return render(request,'index.html',context=context)
 
