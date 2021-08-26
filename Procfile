@@ -1,1 +1,1 @@
-web: gunicorn DTL.wsgi --log-file -
+web: gunicorn user.wsgi --log-file -
