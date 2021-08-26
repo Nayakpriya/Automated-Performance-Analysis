@@ -21,7 +21,7 @@ student_marks = marks.loc[student_id]
 #and CO level for recommended questions
 z_score = (student_marks-means)/standard_deviations
 
-question_bank = pd.ExcelFile(r"C:\Users\PRIYA\Desktop\DTL\student\DTL_Knowledge_Graph_Test.xlsx")
+question_bank = pd.ExcelFile(f"{BASE_DIR}\student\DTL_Knowledge_Graph_Test.xlsx")
 
 print(student_marks)
 print(z_score)
@@ -52,7 +52,7 @@ for i in test.iterrows():
 
     #topic = "C" #This needs to get the topic of the question
 
-    KG = nx.read_graphml(r"C:\Users\PRIYA\Desktop\DTL\student\KG.graphml") #Contains the KG
+    KG = nx.read_graphml(f"{BASE_DIR}\student\KG.graphml") #Contains the KG
 
 
     for node_id in search_nodes(KG, {"==": [("labelV",), topic]}):
