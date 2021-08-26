@@ -55,7 +55,7 @@ def marks_add(request):
         if c_form.is_valid():
             c_form.save()
             messages.success(request,'The question is added')
-            return redirect('question-add')
+            return redirect('marks-add')
     return render(request, 'create.html', context={'form':c_form, 'button_text': 'Add Student Details'})
 
 
