@@ -2,7 +2,7 @@
 from .models import Question,Marks
 from django.contrib import messages,auth
 from django.shortcuts import redirect, render, get_object_or_404
-
+from djqscsv import render_to_csv_response
 from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -157,11 +157,10 @@ def suggested_list(request):
     co=[]
     question=[]
     for element in suggested_questions:
-        print(type(element))
-        print(element)
-        marks.append(element.get("Marks"))
-        question.append(element.get("Question"))
-        co.append(element.get("COs"))
+        if(element.get("Question") not in question):
+            marks.append(element.get("Marks"))
+            question.append(element.get("Question"))
+            co.append(element.get("COs"))
     print(marks,question,co)
     data=zip(question,marks,co)
     context={
@@ -169,3 +168,60 @@ def suggested_list(request):
     }
     
     return render(request,'suggested.html',context=context)
+
+def csv_export_1(request):
+            qs = Question.objects.filter(test=1).values('topic','question','course_outcomes','test','date')
+            response = render_to_csv_response(qs,
+            filename='Report',
+            field_header_map={
+                    'topic':'Topic',
+                    'question':'Question',
+                    'course_outcomes':'CO',
+                    'test':'Test',
+                    'date':'Date',
+                }
+            )
+            return response
+
+            context = {
+            'form': form
+            }
+            return render(request, 'report.html', context)
+
+def csv_export_2(request):
+            qs = Question.objects.filter(test=2).values('topic','question','course_outcomes','test','date')
+            response = render_to_csv_response(qs,
+            filename='Report',
+            field_header_map={
+                    'topic':'Topic',
+                    'question':'Question',
+                    'course_outcomes':'CO',
+                    'test':'Test',
+                    'date':'Date',
+                }
+            )
+            return response
+
+            context = {
+            'form': form
+            }
+            return render(request, 'report.html', context)
+
+def csv_export_3(request):
+            qs = Question.objects.filter(test=3).values('topic','question','course_outcomes','test','date')
+            response = render_to_csv_response(qs,
+            filename='Report',
+            field_header_map={
+                    'topic':'Topic',
+                    'question':'Question',
+                    'course_outcomes':'CO',
+                    'test':'Test',
+                    'date':'Date',
+                }
+            )
+            return response
+
+            context = {
+            'form': form
+            }
+            return render(request, 'report.html', context)
