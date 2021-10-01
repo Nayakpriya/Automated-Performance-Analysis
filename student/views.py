@@ -26,7 +26,7 @@ def question_add(request):
 
 
 def login(request):
-    if request.method == 'POST':
+    if request.POST:
         name = request.POST['name']
         password = request.POST['password']
 
