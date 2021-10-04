@@ -26,7 +26,7 @@ def question_add(request):
 
 
 def login(request):
-    if request.method == 'POST':
+    if request.POST:
         name = request.POST['name']
         password = request.POST['password']
 
@@ -169,6 +169,7 @@ def suggested_list(request):
     
     return render(request,'suggested.html',context=context)
 
+
 def csv_export_1(request):
             qs = Question.objects.filter(test=1).values('topic','question','course_outcomes','test','date')
             response = render_to_csv_response(qs,
@@ -225,3 +226,4 @@ def csv_export_3(request):
             'form': form
             }
             return render(request, 'report.html', context)
+
