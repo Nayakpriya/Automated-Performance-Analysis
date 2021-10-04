@@ -4,8 +4,8 @@ from networkx_query import search_nodes
 import json
 from user.settings import BASE_DIR
 
-student_id = 2  #Login
-whichTest = 1   #Student Selection
+student_id = 1  #Login
+whichTest =  1  #Student Selection
 
 suggested_questions = pd.DataFrame()
 
@@ -34,23 +34,23 @@ for i in test.iterrows():
     topic = ""
     flag = False
 
-    # try:
-    #     i = 0
-    #     while(flag == False):
+    try:
+        i = 0
+        while(flag == False):
 
-    #         df = question_bank.parse(sheet_name=i)
+            df = question_bank.parse(sheet_name=i)
             
-    #         for question in df["Question"]:
-    #             if(question == query_question): #Better check than string comparison
-    #                 topic = question_bank.sheet_names[i]
-    #                 flag = True
-    #                 break
-    #         i+=1
-    # except:
-    #     print("Manually input the topic ")
-    #     topic = input()
+            for question in df["Question"]:
+                if(question == query_question): #Better check than string comparison
+                    topic = question_bank.sheet_names[i]
+                    flag = True
+                    break
+            i+=1
+    except:
+        print("Manually input the topic ")
+        topic = input()
 
-    topic = "C" #This needs to get the topic of the question
+   #topic = "C" #This needs to get the topic of the question
 
     KG = nx.read_graphml(f"{BASE_DIR}/student/KG.graphml") #Contains the KG
 
